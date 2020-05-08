@@ -1,160 +1,154 @@
-# Module 1 Final Project
+#Exploratory data analysis of movie data.
+* [Blog Link](https://medium.com/@saifkasmani84/creating-a-new-movie-studio-exploratory-data-analysis-of-movie-data-eafbc00a5d30)
+* [Video Recording](https://youtu.be/dM9IPFhCnEM)
+* [Presentation.pdf](./presentation.pptx.pdf)
 
-## Introduction
+# Table Of Contents
+* [Purpose](#purpose)
+* [Data Description](#data-description)
+* [Data Cleaning](#data-cleaning)
+* [Questions](#questions)
+* [Wrap Up](#wrap-up)
+* [Future Work](#future-work)
 
-In this lesson, we'll review all of the guidelines and specifications for the final project for Module 1.
+<img src='images/giphy.gif'/>
 
-## Objectives
+## Purpose
+To analyze the given movie data and create a presentation that explores what type of films are currently doing the best at the box office. We must then translate those findings into actionable insights that the CEO of Microsoft can use when deciding what type of films they should be creating in the new movie studio.
 
-You will be able to:
+## Data Description
+We were given the following data to work with:
+* bom.movie_gross.csv
+* name.basics.csv
+* rt.movie_info.tsv
+* rt.reviews.tsv
+* title.akas.csv
+* title.basics.csv
+* title.crew.csv
+* title.principals.csv
+* title.ratings.csv
+* tmdb.movies.csv
+* tn.movie_budgets.csv
 
-* Describe all required aspects of the final project for Module 1
-* Describe all required deliverables
-* Describe what constitutes a successful project
-* Describe what the experience of the project review should be like
 
-## Final Project Summary
-
-You've made it all the way through the first module of this course - take a minute to celebrate your awesomeness!
-
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-mod-1-project-v2-1/master/awesome.gif)
-
-All that remains in Module 1 is to put our newfound data science skills to use with a final project! You should expect this project to take between 20 and 25 hours of solid, focused effort. If you're done way quicker, go back and dig in deeper or try some of the optional "level up" suggestions. If you're worried that you're going to get to 30 hrs and still not even have the data imported, reach out to an instructor in Slack ASAP to get some help!
-
-## The Project
-
-Microsoft sees all the big companies creating original video content, and they want to get in on the fun. They have decided to create a new movie studio, but the problem is they don’t know anything about creating movies. They have hired you to help them better understand the movie industry.
-Your team is charged with doing data analysis and creating a presentation that explores what type of films are currently doing the best at the box office. You must then translate those findings into actionable insights that the CEO can use when deciding what type of films they should be creating.
-
-# The Dataset
-
-You may scrape or make API calls to get additional data, but included in the repository (in the folder `zippedData`) is some movie-related data from:
-* Box Office Mojo
-* IMDB
-* Rotten Tomatoes
+These tables are taken from:
+* [Box Office Mojo](https://www.boxofficemojo.com/)
+* [IMDB](https://www.imdb.com/)
+* [Rotten Tomatoes](https://www.rottentomatoes.com/)
 * TheMovieDB.org
 
-# The Deliverables
+## Data Cleaning
+All data was cleaned on [this notebook](./DataCleaning.ipynb).
+ We created some [functions](./Data_Cleaning_Functions.py) which would help us achieve DRY style of coding.
+In the Data Cleaning notebook we prepared our data to be exported for EDA. Removed unwanted columns and converted respective objects to date-time where needed. We had a goal to make one primary DataFrame with all the data we needed and formatted it as the desired data types needed for plotting and analysis. The file which is used as the primary csv file after cleaning is [group_data.csv](Data/group_data.csv)
+<img src='images/1a.PNG'>
+<img src='images/1b.PNG'>
 
-For online students, there will be five deliverables for this project (Note: On-campus students may have different requirements, please speak with your instructor):
+## Questions
 
-1. A well documented **Jupyter Notebook** containing any code you've written for this project and comments explaining it. This work will need to be pushed to your GitHub repository in order to submit your project.  
-2. An organized **README.md** file in the GitHub repository that describes the contents of the repository. This file should be the source of information for navigating through the repository.
-3. A short **Keynote/PowerPoint/Google Slides presentation** (delivered as a PDF export) giving a high-level overview of your methodology and recommendations for non-technical stakeholders. Make sure to also add and commit this pdf of your non-technical presentation to your repository with a file name of presentation.pdf.
-4. **[A Blog Post](https://github.com/learn-co-curriculum/dsc-welcome-blogging-v2-1)**
-5. A **Video Walkthrough** of your non-technical presentation. Some common video recording tools used are Zoom, Quicktime, and Nimbus. After you record your presentation, publish it on a service like YouTube or Google Drive, you will need a link to the video to submit your project.
+<details><summary style="font-size: 24px"> Question 1: What is the best day/month to release movies vs popularity/domestic gross?</summary>
 
-Note: On-campus students may have different requirements, please speak with your instructor.
+[Q1Notebook](./Question1.ipynb)
+### EDA
+<img src='images/q1a.png'>
+<img src='images/q1b.png'>
+<img src='images/q1c.png'>
+<img src='images/q1d.png'>
 
-### Jupyter Notebook Must-Haves
+### Conclusion
+**Friday** is the best day to release a movie, in terms of both popularity and also domestic gross. **December** is the best month to release a movie, in terms of both popularity and domestic gross
 
-For this project, your Jupyter Notebook should meet the following specifications:
+### Recommendation 
+Try to release movies on a Friday so that more people will come and watch the movie which will drive up ticket sales as compared to other days. We have found out that December by far is the most popular and profitable month for movies to be released as compared to other months. So try to release movies in the October to December range of months.
+</details>
 
-#### Organization/Code Cleanliness
+<details><summary style="font-size: 24px"> Question 2: What is the most successful genre?</summary>
+[Q2Notebook](./Question2.ipynb)
+We were tasked with analysing what genre would be the most profitable for Mircosoft to consider as a category for them to enter the movie making industry. We decided to answer the following questions about movie genres to assist in finding what the best strategy for Mircosoft should be.
 
-* The notebook should be well organized, easy to follow,  and code should be commented where appropriate.  
-    * Level Up: The notebook contains well-formatted, professional looking markdown cells explaining any substantial code.  All functions have docstrings that act as professional-quality documentation
-* The notebook is written for technical audiences with a way to both understand your approach and reproduce your results. The target audience for this deliverable is other data scientists looking to validate your findings.
+* What is the top overall movie genre?
 
-#### Visualizations & EDA
+* Is there a correlation between release month and higher profitability in that genre?
 
-* Your project contains at least 4 meaningful data visualizations, with corresponding interpretations. All visualizations are well labeled with axes labels, a title, and a legend (when appropriate)  
-* You pose at least 3 meaningful questions and answer them through EDA.  These questions should be well labeled and easy to identify inside the notebook.
-    * **Level Up**: Each question is clearly answered with a visualization that makes the answer easy to understand.   
-* Your notebook should contain 1 - 2 paragraphs briefly explaining your approach to this project.
+* Is there a correlation between production budget and net profits in the that genre?
 
+### EDA
+<img src='images/q2a.png'>
+<img src='images/q2b.png'>
+<img src='images/q2c.png'>
 
-### Non-Technical Presentation Must-Haves
+### Conclusion
 
-Another deliverable should be a Keynote, PowerPoint or Google Slides presentation delivered as a pdf file in your fork of this repository with the file name of `presentation.pdf` detailing the results of your project.  Your target audience is non-technical people interested in using your findings to make decisions for creating movies.
+* Out of the top 100 domestic gross movies over the past 30 years, the genre 'Action, Adventure, Sci-Fi' made up the largest successful genre group in that data sample.
+* Our findings showed that releasing 'Action, Adventure, Sci-Fi' movies in late Spring/early-mid Summer, Spring Break week, during the holidays, and if it is a cultural movie, released during that culture's Heritage month, all proved to be the most profitable times of the year to release that genre.
+* Sticking to a production budget of 200 million dollars while producing an 'Action, Adventure, Sci-Fi' movie has proven to be the key ingredient to high net profitability that can be forecasted to be between 200-500 million dollars.
 
-Your presentation should:
+### Recommendation
 
-* Contain between 5 - 10 professional-quality slides.  
-    * **Level Up**: The slides should use visualizations whenever possible, and avoid walls of text.
-* Take no more than 5 minutes to present.   
-* Avoid technical jargon and explain the results in a clear, actionable way for non-technical audiences.   
+The final recommendation to Microsoft pertaining to what genre would be the most profitable for them to make movies in would be **'Action, Adventure, Sci-Fi'**.
+</details>
 
-### Blog Post Must-Haves
+<details><summary style="font-size: 24px"> Question 3: Is there a relationship of run time of movies vs domestic gross, popularity and production budget? </summary>
+[Q3Notebook](./Question3.ipynb)
+Here we try to examine if there is a relationship between domestic gross/production budget vs runtime in minutes of a movie. We take the Top 100 highest grossing movies and the Bottom 100 lowest grossing movies and find out the mean runtime for them.
 
-Refer back to the [Blogging Guidelines](https://github.com/learn-co-curriculum/dsc-welcome-blogging-v2-1) for the technical requirements and blog ideas.
+### EDA
+<img src='images/q3a.png'>
+<img src='images/q3b.png'>
+<img src='images/q3c.png'>
+<img src='images/q3d.png'>
 
+### Conclusion
+It seems that the highest grossing movies average to be around **123 minutes** while the lowest grossing movies average around the **95 minutes** mark. The most popular movies in the top 100 movies have a runtime of **149 minutes**. If we take into consideration the most popular movies like Titanic, Avatar and all Marvel movies, this is what we would expect. As per our numbers, people normally like longer movies. Also as we can see in the heatmap that the correlation coefficient of runtime to production budget is positively correlated and is **0.31** which is moderately strong.
 
+### Recommendation
+Make movies averaging the **120-150 minutes** range and keep in mind that one of the factors that will make production budget increase is the increase in movie runtime.
+</details>
 
-## The Process
-(Note: On-campus students may have different processes, please speak with your instructor)
+<details><summary style="font-size: 24px"> Question 4:  Can the film industry be a consistent profit center?</summary>
+[Q4Notebook](./Question4.ipynb)
 
-### 1. Getting Started
+Here we will evaluate questions such as:
 
-Please start by reviewing this document. If you have any questions, please ask them in Slack ASAP so (a) we can answer the questions and (b) so we can update this repository to make it clearer.
+* Are movies making more or less profit since 2000?
+* Are movies getting more expensive to make since 2000?
+* Does spending more money on production increase your chances of being profitable?
+The intent of these questions are to provide an insight if the movie industry is thriving or failing. We want our clients to make the smartest decisions. We are looking to see if "an ounce of prevention equals a pound of cure". If we can inform our clients that entering the movie business will not only be a waste of time, but also a waste of resources not beginning down that path is the smartest choice to make.
 
-Be sure to let the instructor team know when you’ve started working on a project, either by reaching out over Slack or, if you are in a full-time or part-time cohort, by connecting with your Cohort Lead in your weekly 1:1. If you’re not sure who to reach out to, post in the #online-ds-sp-000 channel in Slack.
+### EDA
+<img src='images/q41.png'>
+<img src='images/q42.png'>
+<img src='images/q43.png'>
+<img src='images/q44.png'>
+<img src='images/q46.png'>
+<img src='images/q47.png'>
+<img src='images/q48.png'>
 
-Once you're done with the 10 sections in module 1, please start on the project. Do that by forking this repository, cloning it locally, and working in the `student.ipynb` file. Make sure to also add and commit a pdf of your presentation to the repository with a file name of `presentation.pdf`.
+### Conclusion
+**1. Are ticket sales growing since 2000?**
+Figure 1.1 answers this question pretty plainly looking at the blue line representing ticket sales. Ticket sales shows an unicumbered picture of the demand for the movies created that year. From 2000 to 2015 ticket sales were not growing until a crazy spike going around 2018. Ticket sales after 2019 have declined dramatically after an impressive 2018 back to the same levels they were at the entire 2 decades we evaluated. There is no measurable growth in demand from 2000 to 2019.
 
-### 2. The Project Review
+**2. Are movies making more or less profit since 2000?**
+This question is easily answerable looking at Figure 1.1, Figure 2.2, and Figure 3.0. Looking at Figure 2.2 we see the relationship of profit per movie over time with a line of best fit plotted showing the trend. The slope is flat to barely negative. Figure 3.0 shows the correlation coefficient between profit per movie and the year it was released is -0.17. This also shows there is a negligible negative correlation to the year it was released and the profit of the movie. This shows that movies are not becoming more profitable over time.
 
-_Note: On-campus students may have different review processes, please speak with your instructor._
+**3. Are movies getting more expensive to make since 2000?**
+Similarly to question 2 lets look at Figure 2.1 and Figure 3.0. Figure 2.1 shows production budgets per movie over time. The line of best fit is showing a steep ascent which means that productions budgets have been growing as the years passed. Figure 3.0 shows the correlation coefficient between these two variables is 0.64. This is proof of a strong positive correlation of these values as the years go on the production budgets also increase. This shows that movies are becoming increasingly expensive to make over time.
 
-> **When you start on the project, please also reach out to an instructor immediately to schedule your project review** (if you're not sure who to schedule with, please ask in Slack!)
+**4. Does a larger production budget increase your chances of producing a profitable movie?**
+Figure 3.0 measures the correlation between multiple variables including production budget and profit per movie and ROI. The values for production budget vs profit is 0.055 and production budget vs ROI is -0.14. This means that while production budget does have a little effect on ticket sales the increased cost in the budget is greater therefore hurting your return metrics. This shows that a larger production budget has no change to your profit and actually will hurt your return metrics.
 
-#### What to expect from the Project Review
+### Recommendation
+On this data I would not reccomend entering the movie industry as an unexperienced content creator. The majority of movies are not doing well and there is an extremely wide range in possible outcomes. That being said, I believe this data is leaving out a major part of the revenue stream for movies in the on demand market. If we had data on the income generated from on demand services such as Netflix it may shed a much more positive light on becoming a content creator. 
+</details>
 
-Project reviews are focused on preparing you for technical interviews. Treat project reviews as if they were technical interviews, in both attitude and technical presentation *(sometimes technical interviews will feel arbitrary or unfair - if you want to get the job, commenting on that is seldom a good choice)*.
+## Wrap up 
+On the data that we were given to work with, i would not recommend entering the movie industry as an unexperienced content creator. The majority of movies are not doing well and there is an extremely wide range in possible outcomes. That being said, I believe this data is leaving out a major part of the revenue stream for movies in the on demand market. If we had data on the income generated from on demand services such as Netflix it may shed a much more positive light on becoming a content creator.
 
-The project review is comprised of a 45 minute 1:1 session with one of the instructors. During your project review, be prepared to:
-
-#### 1. Deliver your PDF presentation to a non-technical stakeholder.
-In this phase of the review (~10 mins) your instructor will play the part of a non-technical stakeholder that you are presenting your findings to. The presentation  should not exceed 5 minutes, giving the "stakeholder" 5 minutes to ask questions.
-
-In the first half of the presentation (2-3 mins), you should summarize your methodology in a way that will be comprehensible to someone with no background in data science and that will increase their confidence in you and your findings. In the second half (the remaining 2-3 mins) you should summarize your findings and be ready to answer a couple of non-technical questions from the audience. The questions might relate to technical topics (sampling bias, confidence, etc) but will be asked in a non-technical way and need to be answered in a way that does not assume a background in statistics or machine learning. You can assume a smart, business stakeholder, with a non-quantitative college degree.
-
-#### 2. Go through the Jupyter Notebook, answering questions about how you made certain decisions. Be ready to explain things like:
-    * "How did you pick the question(s) that you did?"
-    * "Why are these questions important from a business perspective?"
-    * "How did you decide on the data cleaning options you performed?"
-    * "Why did you choose a given method or library?"
-    * "Why did you select those visualizations and what did you learn from each of them?"
-    * "Why did you pick those features as predictors?"
-    * "How would you interpret the results?"
-    * "How confident are you in the predictive quality of the results?"
-    * "What are some of the things that could cause the results to be wrong?"
-
-Think of the first phase of the review (~30 mins) as a technical boss reviewing your work and asking questions about it before green-lighting you to present to the business team. You should practice using the appropriate technical vocabulary to explain yourself. Don't be surprised if the instructor jumps around or sometimes cuts you off - there is a lot of ground to cover, so that may happen.
-
-If any requirements are missing or if significant gaps in understanding are uncovered, be prepared to do one or all of the following:
-* Perform additional data cleanup, visualization, feature selection, modeling and/or model validation
-* Submit an improved version
-* Meet again for another Project Review
-
-What won't happen:
-* You won't be yelled at, belittled, or scolded
-* You won't be put on the spot without support
-* There's nothing you can do to instantly fail or blow it
-
-**Please note: We need to receive the URL of your repository at least 24 hours before and please have the project finished at least 3 hours before your review so we can look at your materials in advance.**
-
-
-## Submitting your Project
-
- You’re almost done! In order to submit your project for review, include the following links to your work in the corresponding fields on the right-hand side of Learn.
-
- 1. **GitHub Repo:** Now that you’ve completed your project in Jupyter Notebooks, push your work to GitHub and paste that link to the right. (If you need help doing so, review the resources [here](https://docs.google.com/spreadsheets/d/1CNGDhjcQZDRx2sWByd2v-mgUOjy13Cd_hQYVXPuzEDE/edit#gid=0).)
-_Reminder: Make sure to also add and commit a pdf of your non-technical presentation to the repository with a file name of presentation.pdf._
-2. **Blog Post:** Include a link to your blog post.
-3. **Record Walkthrough:** Include a link to your video walkthrough.
-
- Hit "I'm done" to wrap it up. You will receive an email in order to schedule your review with your instructor.
-
-## Grading Rubric
-
-Online students can find a PDF of the grading rubric for the project [here](https://github.com/learn-co-curriculum/dsc-mod-1-project-v2-1/blob/master/module1_project_rubric.pdf). On-campus students may have different review processes, please speak with your instructor.
+## Future Work
+* Webscraping for the missing data.
+* Use imdb API's to get the genre names for the genres they have in genre_id.
+* Learn about recommender systems and how they can be implemented to increase revenue.
 
 
-## Summary
-
-The end of module projects and project reviews are a critical part of the program. They give you a chance to both bring together all the skills you've learned into realistic projects and to practice key "business judgement" and communication skills that you otherwise might not get as much practice with.
-
-The projects are serious and important. They are not graded, but they can be passed and they can be failed. Take the project seriously, put the time in, ask for help from your peers or instructors early and often if you need it, and treat the review as a job interview and you'll do great. We're rooting for you to succeed and we're only going to ask you to take a review again if we believe that you need to. We'll also provide open and honest feedback so you can improve as quickly and efficiently as possible.
-
-Finally, this is your first project. We don't expect you to remember all of the terms or to get all of the answers right. If in doubt, be honest. If you don't know something, say so. If you can't remember it, just say so. It's very unusual for someone to complete a project review without being asked a question they're unsure of, we know you might be nervous which may affect your performance. Just be as honest, precise and focused as you can be, and you'll do great!
+<img src='images/wakanda.gif'/>
+###### Fun Fact: With $631 million to date at the domestic box office, Marvel's “Black Panther” has become the highest-grossing superhero movie in the U.S.
