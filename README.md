@@ -151,4 +151,4 @@ On the data that we were given to work with, i would not recommend entering the 
 
 
 <img src='images/wakanda.gif'/>
-###### Fun Fact: With $631 million to date at the domestic box office, Marvel's “Black Panther” has become the highest-grossing superhero movie in the U.S.
+##### Fun Fact: With $631 million to date at the domestic box office, Marvel's “Black Panther” has become the highest-grossing superhero movie in the U.S.
