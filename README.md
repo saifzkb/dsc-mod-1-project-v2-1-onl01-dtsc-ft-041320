@@ -1,4 +1,4 @@
-#Exploratory data analysis of movie data.
+# Exploratory data analysis of movie data.
 * [Blog Link](https://medium.com/@saifkasmani84/creating-a-new-movie-studio-exploratory-data-analysis-of-movie-data-eafbc00a5d30)
 * [Video Recording](https://youtu.be/dM9IPFhCnEM)
 * [Presentation.pdf](./presentation.pptx.pdf)
@@ -38,7 +38,7 @@ These tables are taken from:
 * TheMovieDB.org
 
 ## Data Cleaning
-All data was cleaned on [this notebook](./DataCleaning.ipynb).
+All data was cleaned on [this notebook](./Question1.ipynb).
  We created some [functions](./Data_Cleaning_Functions.py) which would help us achieve DRY style of coding.
 In the Data Cleaning notebook we prepared our data to be exported for EDA. Removed unwanted columns and converted respective objects to date-time where needed. We had a goal to make one primary DataFrame with all the data we needed and formatted it as the desired data types needed for plotting and analysis. The file which is used as the primary csv file after cleaning is [group_data.csv](Data/group_data.csv)
 <img src='images/1a.PNG'>
@@ -63,6 +63,7 @@ Try to release movies on a Friday so that more people will come and watch the mo
 </details>
 
 <details><summary style="font-size: 24px"> Question 2: What is the most successful genre?</summary>
+
 [Q2Notebook](./Question2.ipynb)
 We were tasked with analysing what genre would be the most profitable for Mircosoft to consider as a category for them to enter the movie making industry. We decided to answer the following questions about movie genres to assist in finding what the best strategy for Mircosoft should be.
 
@@ -89,6 +90,7 @@ The final recommendation to Microsoft pertaining to what genre would be the most
 </details>
 
 <details><summary style="font-size: 24px"> Question 3: Is there a relationship of run time of movies vs domestic gross, popularity and production budget? </summary>
+
 [Q3Notebook](./Question3.ipynb)
 Here we try to examine if there is a relationship between domestic gross/production budget vs runtime in minutes of a movie. We take the Top 100 highest grossing movies and the Bottom 100 lowest grossing movies and find out the mean runtime for them.
 
@@ -106,6 +108,7 @@ Make movies averaging the **120-150 minutes** range and keep in mind that one of
 </details>
 
 <details><summary style="font-size: 24px"> Question 4:  Can the film industry be a consistent profit center?</summary>
+
 [Q4Notebook](./Question4.ipynb)
 
 Here we will evaluate questions such as:
