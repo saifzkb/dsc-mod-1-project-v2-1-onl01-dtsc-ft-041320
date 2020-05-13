@@ -1,4 +1,0 @@
-*.sqlite
-zippedData/
-zippedData/*.csv
-zippedData/*.gz
