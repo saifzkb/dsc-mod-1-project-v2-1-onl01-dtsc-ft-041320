@@ -35,7 +35,7 @@ These tables are taken from:
 * [Box Office Mojo](https://www.boxofficemojo.com/)
 * [IMDB](https://www.imdb.com/)
 * [Rotten Tomatoes](https://www.rottentomatoes.com/)
-* TheMovieDB.org
+* [TheMovieDB](https://TheMovieDB.org)
 
 ## Data Cleaning
 All data was cleaned on [this notebook](./DataCleaning.ipynb).
